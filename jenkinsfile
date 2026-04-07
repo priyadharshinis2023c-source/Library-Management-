@@ -36,10 +36,10 @@ pipeline {
                 withCredentials([usernamePassword(
                     credentialsId: 'c6657067-6a31-4c19-afbb-072af21ce2bb',
                     usernameVariable: 'dhachu123',
-                    passwordVariable: 'Dhachu#123'
+                    passwordVariable: 'Priyadharshini@23'
                 )]) {
                     bat """
-                    echo Dhachu#123 | docker login -u dhachu123 --password-stdin
+                    echo Priyadharshini@23 | docker login -u dhachu123 --password-stdin
                     """
                 }
             }
