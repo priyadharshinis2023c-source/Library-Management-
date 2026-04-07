@@ -36,10 +36,10 @@ pipeline {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-cred',
                     usernameVariable: 'dhachu123',
-                    passwordVariable: 'Priyadharshini@23'
+                    passwordVariable: 'Priyadharshini@123'
                 )]) {
                     bat """
-                    echo Priyadharshini@23 | docker login -u dhachu123 --password-stdin
+                    echo Priyadharshini@123 | docker login -u dhachu123 --password-stdin
                     """
                 }
             }
