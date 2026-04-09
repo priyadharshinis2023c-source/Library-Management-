@@ -26,7 +26,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG} ."
+                bat "docker build -t dhachu123/library-monitoring-system:latest ."
             }
         }
 
@@ -34,11 +34,11 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-cred',
-                    usernameVariable: 'DOCKER_USERNAME',
-                    passwordVariable: 'DOCKER_PASSWORD'
+                    usernameVariable: 'dhachu123',
+                    passwordVariable: 'dckr_pat_qh16w8uU0ntQFzTAgz8em-Qw7ac'
                 )]) {
                     bat """
-                    echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin
+                    echo dckr_pat_qh16w8uU0ntQFzTAgz8em-Qw7ac | docker login -u dhachu123 --password-stdin
                     """
                 }
             }
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Push Image') {
             steps {
-                bat "docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
+                bat "docker push dhachu123/library-monitoring-system:latest"
             }
         }
 
